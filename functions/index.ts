@@ -1,7 +1,16 @@
+const cache = caches.default
+
 export function onRequest(context) {
-  return new Response(JSON.stringify(context.request.cf), {
+  
+  const res = await cache.match(context.request)
+  
+  if (res) return res
+  
+  await cache.put(context.request, new Response("This response IS cached!", {
     headers: {
-      'Content-Type': 'application/json'
+      'Cache-Control': 'public, s-maxage=60'
     }
-  })
+  }))
+  
+  return new Response("This response is not cached...")
 }
