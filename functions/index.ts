@@ -1,6 +1,6 @@
 const cache = caches.default
 
-export function onRequest(context) {
+export async function onRequest(context) {
   
   const res = await cache.match(context.request)
   
