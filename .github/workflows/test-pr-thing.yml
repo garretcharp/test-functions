@@ -1,8 +1,7 @@
 name: Add comment if pr merges into master
 
 on:
-  pull_request:
-    types: [opened]
+  pull_request
 
 jobs:
   AddComment:
@@ -17,6 +16,6 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             commit_id: context.sha,
-            path: ''
+            path: '',
             body: '👋 This pr is going into master!'
           })
