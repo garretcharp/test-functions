@@ -6,7 +6,7 @@ on:
 jobs:
   AddComment:
     runs-on: ubuntu-latest
-    if: ${{ github.base_ref == 'refs/heads/master' }}
+    if: ${{ github.head_ref == 'refs/heads/master' }}
     steps:
     - uses: actions/github-script@v6
       with:
