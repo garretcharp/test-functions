@@ -20,5 +20,6 @@ jobs:
             repo: context.repo.repo,
             commit_id: context.sha,
             path: '',
+            subject_type: 'FILE',
             body: '👋 This pr is going into master!'
           })
