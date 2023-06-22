@@ -4,16 +4,9 @@ on:
   pull_request
 
 jobs:
-  LogGithub:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
-        run: echo "$GITHUB_CONTEXT"
   AddComment:
     runs-on: ubuntu-latest
-    if: ${{ github.head_ref == 'refs/heads/master' }}
+    if: ${{ github.base_ref == 'master' }}
     steps:
     - uses: actions/github-script@v6
       with:
