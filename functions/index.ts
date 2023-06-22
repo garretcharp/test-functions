@@ -12,5 +12,5 @@ export async function onRequest(context) {
     }
   }))
   
-  return new Response("This response is not cached...")
+  return new Response("This response is not cached!")
 }
